@@ -13,6 +13,8 @@ const EngravingCard = ({
   title,
   showNegative = true,
   showPriceField = true,
+  state,
+  setState,
 }) => {
   let marginTop = 0;
 
@@ -32,6 +34,9 @@ const EngravingCard = ({
           <Engraving
             showNegative={showNegative}
             showPriceField={showPriceField}
+            state={state}
+            setState={setState}
+            id={title.replace(' ', '').toLowerCase()}
           />
         </div>
       </CardContent>

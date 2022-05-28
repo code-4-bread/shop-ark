@@ -59,15 +59,98 @@ const NegativeSelector = styled(Autocomplete)(() => ({
 const selectorGridSize = 9;
 const inputGridSize = 3;
 
-const Engraving = ({ showNegative = true, showPriceField = true }) => {
-  const positiveEngravings = [...normalEngravings, ...classEngravings];
+const Engraving = ({
+  showNegative = true,
+  showPriceField = true,
+  state,
+  setState,
+  id,
+}) => {
+  let positiveEngravings = normalEngravings;
+
+  const engravingState = state[id];
+
+  const { p1, p2, n1, price } = engravingState;
+
+  const setEngrave = (valueId, value) => {
+    const oldState = state[id];
+    const newTypeState = {
+      ...oldState,
+      [valueId]: {
+        label: value,
+        point: 0,
+      },
+    };
+
+    const newState = {
+      ...state,
+      [id]: {
+        ...newTypeState,
+      },
+    };
+
+    setState(newState);
+    localStorage.setItem('shop-ark-state', JSON.stringify(newState));
+  };
+
+  const setPoint = (valueId, value) => {
+    const oldState = state[id];
+    const oldPos = oldState[valueId];
+    const newTypeState = {
+      ...oldState,
+      [valueId]: {
+        ...oldPos,
+        point: parseInt(value),
+      },
+    };
+
+    const newState = {
+      ...state,
+      [id]: {
+        ...newTypeState,
+      },
+    };
+
+    setState(newState);
+    localStorage.setItem('shop-ark-state', JSON.stringify(newState));
+  };
+
+  const setPrice = (value) => {
+    const oldState = state[id];
+    const newTypeState = {
+      ...oldState,
+      price: parseInt(value),
+    };
+
+    const newState = {
+      ...state,
+      [id]: {
+        ...newTypeState,
+      },
+    };
+
+    setState(newState);
+    localStorage.setItem('shop-ark-state', JSON.stringify(newState));
+  };
+
+  if (!showPriceField) {
+    positiveEngravings = [...normalEngravings, ...classEngravings];
+  }
+
   return (
     <>
       <Grid container spacing={2}>
         <Grid item xs={selectorGridSize}>
           <PositiveSelector
-            options={[...positiveEngravings, ...normalEngravings]}
+            options={positiveEngravings.map((val) => ({
+              id: 'p1',
+              label: val,
+            }))}
             size={selectorSize}
+            defaultValue={p1.label}
+            onChange={(e, value) => {
+              setEngrave(value.id, value.label);
+            }}
             renderInput={(params) => (
               <TextField {...params} label='Engraving' />
             )}
@@ -75,8 +158,13 @@ const Engraving = ({ showNegative = true, showPriceField = true }) => {
         </Grid>
         <Grid item xs={inputGridSize}>
           <TextField
+            id='p1'
             hiddenLabel
-            defaultValue={0}
+            defaultValue={p1.point || 0}
+            onChange={(e) => {
+              const { id: valueId, value } = e.target;
+              setPoint(valueId, value);
+            }}
             sx={{
               width: '100%',
               margin: '10px auto',
@@ -94,8 +182,15 @@ const Engraving = ({ showNegative = true, showPriceField = true }) => {
       <Grid container spacing={2}>
         <Grid item xs={selectorGridSize}>
           <PositiveSelector
-            options={[...positiveEngravings, ...normalEngravings]}
+            options={positiveEngravings.map((val) => ({
+              id: 'p2',
+              label: val,
+            }))}
+            onChange={(e, value) => {
+              setEngrave(value.id, value.label);
+            }}
             size={selectorSize}
+            defaultValue={p2.label}
             renderInput={(params) => (
               <TextField {...params} label='Engraving' />
             )}
@@ -103,8 +198,13 @@ const Engraving = ({ showNegative = true, showPriceField = true }) => {
         </Grid>
         <Grid item xs={inputGridSize}>
           <TextField
+            id='p2'
             hiddenLabel
-            defaultValue={0}
+            defaultValue={p2.point || 0}
+            onChange={(e) => {
+              const { id: valueId, value } = e.target;
+              setPoint(valueId, value);
+            }}
             sx={{
               width: '100%',
               margin: '10px auto',
@@ -123,7 +223,14 @@ const Engraving = ({ showNegative = true, showPriceField = true }) => {
         <Grid container spacing={2}>
           <Grid item xs={selectorGridSize}>
             <NegativeSelector
-              options={negativeEngravings}
+              options={negativeEngravings.map((val) => ({
+                id: 'n1',
+                label: val,
+              }))}
+              defaultValue={n1.label}
+              onChange={(e, value) => {
+                setEngrave(value.id, value.label);
+              }}
               size={selectorSize}
               renderInput={(params) => (
                 <TextField {...params} label='Engraving' />
@@ -132,8 +239,13 @@ const Engraving = ({ showNegative = true, showPriceField = true }) => {
           </Grid>
           <Grid item xs={inputGridSize}>
             <TextField
+              id='n1'
               hiddenLabel
-              defaultValue={0}
+              defaultValue={n1.point || 0}
+              onChange={(e) => {
+                const { id: valueId, value } = e.target;
+                setPoint(valueId, value);
+              }}
               sx={{
                 width: '100%',
                 margin: '10px auto',
@@ -157,7 +269,7 @@ const Engraving = ({ showNegative = true, showPriceField = true }) => {
           <Grid item xs={9} style={{ paddingLeft: 0 }}>
             <TextField
               hiddenLabel
-              defaultValue={0}
+              defaultValue={price}
               sx={{
                 width: '100%',
                 margin: '10px auto',
@@ -165,6 +277,9 @@ const Engraving = ({ showNegative = true, showPriceField = true }) => {
                   textAlign: 'center',
                   backgroundColor: 'white',
                 },
+              }}
+              onChange={(e) => {
+                setPrice(e.target.value);
               }}
               variant='filled'
               size='small'

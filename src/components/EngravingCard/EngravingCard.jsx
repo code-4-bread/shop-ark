@@ -25,7 +25,15 @@ const EngravingCard = ({
   }
 
   return (
-    <Card variant='outlined' style={{ height: '100%' }}>
+    <Card
+      variant='outlined'
+      style={{
+        height: '100%',
+        backgroundColor: '#121212',
+        color: 'white',
+        border: '1px solid white',
+      }}
+    >
       <CardContent>
         <StyledH2 align='center'>{title}</StyledH2>
         <div style={{ marginTop: marginTop }}>

@@ -51,17 +51,25 @@ const Body = () => {
         aria-labelledby='alert-dialog-title'
         aria-describedby='alert-dialog-description'
       >
-        <DialogTitle id='alert-dialog-title'>
+        <DialogTitle
+          id='alert-dialog-title'
+          style={{ backgroundColor: '#121212', color: 'white' }}
+        >
           Do you really want to reset the build?
         </DialogTitle>
-        <DialogContent>
-          <DialogContentText id='alert-dialog-description'>
+        <DialogContent style={{ backgroundColor: '#121212', color: 'white' }}>
+          <DialogContentText
+            id='alert-dialog-description'
+            style={{ backgroundColor: '#121212', color: 'white' }}
+          >
             This action is irreversible.
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>No</Button>
-          <Button onClick={resetData} autoFocus>
+        <DialogActions style={{ backgroundColor: '#121212', color: 'white' }}>
+          <Button onClick={handleClose} style={{ color: 'white' }}>
+            No
+          </Button>
+          <Button onClick={resetData} style={{ color: 'white' }} autoFocus>
             Yes
           </Button>
         </DialogActions>

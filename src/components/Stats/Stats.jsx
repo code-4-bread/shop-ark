@@ -82,7 +82,15 @@ const Stats = ({ state }) => {
   });
 
   return (
-    <Card variant='outlined' style={{ height: '100%' }}>
+    <Card
+      variant='outlined'
+      style={{
+        height: '100%',
+        backgroundColor: '#121212',
+        color: 'white',
+        border: '1px solid white',
+      }}
+    >
       <CardContent>
         <StyledH2 variant='h4' align='center'>
           Stats

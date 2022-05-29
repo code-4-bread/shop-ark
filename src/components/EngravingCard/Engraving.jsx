@@ -32,6 +32,10 @@ const PositiveSelector = styled(Autocomplete)(() => ({
     {
       borderColor: positiveColor,
     },
+
+  '.MuiAutocomplete-endAdornment > button': {
+    color: positiveColor,
+  },
 }));
 
 const NegativeSelector = styled(Autocomplete)(() => ({
@@ -54,6 +58,9 @@ const NegativeSelector = styled(Autocomplete)(() => ({
     {
       borderColor: negativeColor,
     },
+  '.MuiAutocomplete-endAdornment > button': {
+    color: negativeColor,
+  },
 }));
 
 const selectorGridSize = 9;
@@ -179,7 +186,9 @@ const Engraving = ({
               '& input': {
                 textAlign: 'center',
                 color: positiveColor,
-                backgroundColor: 'white',
+                backgroundColor: '#121212',
+                border: `1px solid ${positiveColor}`,
+                borderRadius: '5px',
               },
             }}
             variant='filled'
@@ -225,7 +234,9 @@ const Engraving = ({
               '& input': {
                 textAlign: 'center',
                 color: positiveColor,
-                backgroundColor: 'white',
+                backgroundColor: '#121212',
+                border: `1px solid ${positiveColor}`,
+                borderRadius: '5px',
               },
             }}
             variant='filled'
@@ -272,7 +283,9 @@ const Engraving = ({
                 '& input': {
                   textAlign: 'center',
                   color: negativeColor,
-                  backgroundColor: 'white',
+                  backgroundColor: '#121212',
+                  border: `1px solid ${negativeColor}`,
+                  borderRadius: '5px',
                 },
               }}
               variant='filled'
@@ -296,7 +309,10 @@ const Engraving = ({
                 margin: '10px auto',
                 '& input': {
                   textAlign: 'center',
-                  backgroundColor: 'white',
+                  color: 'white',
+                  backgroundColor: '#121212',
+                  border: `1px solid white`,
+                  borderRadius: '5px',
                 },
               }}
               onChange={(e) => {

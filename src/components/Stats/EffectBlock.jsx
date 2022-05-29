@@ -20,7 +20,7 @@ const EffectBlock = ({ name, value }) => {
       </Grid>
       <Grid item xs={3}>
         <b>
-          {level}/3 {excessValue != 0 && <b>({excessValueDisplay})</b>}
+          {level}/3 {excessValue !== 0 && <b>({excessValueDisplay})</b>}
         </b>
       </Grid>
     </Grid>

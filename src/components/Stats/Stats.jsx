@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import EffectBlock from './EffectBlock';
 
-const { Card, CardContent, List, ListItem } = require('@mui/material');
+const { Card, CardContent, List } = require('@mui/material');
 
 const StyledH2 = styled.h2`
   margin: 0;

@@ -14,7 +14,7 @@ const EffectBlock = ({ name, value }) => {
     excessValue < 0 ? `${excessValue}` : `+${excessValue}`;
 
   return (
-    <Grid container style={{ marginTop: '20px', color: color }}>
+    <Grid container style={{ marginTop: '5px', color: color }}>
       <Grid item xs={9}>
         <b>{name}:</b>
       </Grid>

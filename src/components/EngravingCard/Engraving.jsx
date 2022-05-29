@@ -74,11 +74,12 @@ const Engraving = ({
 
   const setEngrave = (valueId, value) => {
     const oldState = state[id];
+    const oldPoint = oldState[valueId];
     const newTypeState = {
       ...oldState,
       [valueId]: {
+        ...oldPoint,
         label: value,
-        point: 0,
       },
     };
 
@@ -147,9 +148,14 @@ const Engraving = ({
               label: val,
             }))}
             size={selectorSize}
-            defaultValue={p1.label}
+            defaultValue={p1.label || null}
+            value={p1.label || null}
             onChange={(e, value) => {
-              setEngrave(value.id, value.label);
+              if (!value) {
+                setEngrave('p1', null);
+              } else {
+                setEngrave('p1', value.label);
+              }
             }}
             renderInput={(params) => (
               <TextField {...params} label='Engraving' />
@@ -161,6 +167,7 @@ const Engraving = ({
             id='p1'
             hiddenLabel
             defaultValue={p1.point || 0}
+            value={p1.point || 0}
             onChange={(e) => {
               const { id: valueId, value } = e.target;
               setPoint(valueId, value);
@@ -187,10 +194,15 @@ const Engraving = ({
               label: val,
             }))}
             onChange={(e, value) => {
-              setEngrave(value.id, value.label);
+              if (!value) {
+                setEngrave('p2', null);
+              } else {
+                setEngrave('p2', value.label);
+              }
             }}
             size={selectorSize}
-            defaultValue={p2.label}
+            defaultValue={p2.label || null}
+            value={p2.label || null}
             renderInput={(params) => (
               <TextField {...params} label='Engraving' />
             )}
@@ -201,6 +213,7 @@ const Engraving = ({
             id='p2'
             hiddenLabel
             defaultValue={p2.point || 0}
+            value={p2.point || 0}
             onChange={(e) => {
               const { id: valueId, value } = e.target;
               setPoint(valueId, value);
@@ -227,9 +240,14 @@ const Engraving = ({
                 id: 'n1',
                 label: val,
               }))}
-              defaultValue={n1.label}
+              defaultValue={n1.label || null}
+              value={n1.label || null}
               onChange={(e, value) => {
-                setEngrave(value.id, value.label);
+                if (!value) {
+                  setEngrave('n1', null);
+                } else {
+                  setEngrave('n1', value.label);
+                }
               }}
               size={selectorSize}
               renderInput={(params) => (
@@ -242,6 +260,7 @@ const Engraving = ({
               id='n1'
               hiddenLabel
               defaultValue={n1.point || 0}
+              value={n1.point || 0}
               onChange={(e) => {
                 const { id: valueId, value } = e.target;
                 setPoint(valueId, value);
@@ -269,7 +288,8 @@ const Engraving = ({
           <Grid item xs={9} style={{ paddingLeft: 0 }}>
             <TextField
               hiddenLabel
-              defaultValue={price}
+              defaultValue={price || 0}
+              value={price || 0}
               sx={{
                 width: '100%',
                 margin: '10px auto',

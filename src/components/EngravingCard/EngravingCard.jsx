@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import Engraving from './Engraving';
 
 const StyledH2 = styled.h2`
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 20px;
   text-align: center;
 `;
 
@@ -27,9 +28,7 @@ const EngravingCard = ({
   return (
     <Card variant='outlined' style={{ height: '100%' }}>
       <CardContent>
-        <StyledH2 variant='h4' align='center'>
-          {title}
-        </StyledH2>
+        <StyledH2 align='center'>{title}</StyledH2>
         <div style={{ marginTop: marginTop }}>
           <Engraving
             showNegative={showNegative}

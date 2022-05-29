@@ -40,7 +40,8 @@ const normalEngravings = [
   'All-Out Attack',
   'Expert',
   'Emergency Rescue',
-  'Precision Dagger'
+  'Precision Dagger',
+  'Sight Focus'
 ];
 
 const classEngravings = [

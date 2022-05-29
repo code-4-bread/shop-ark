@@ -62,6 +62,7 @@ const inputGridSize = 3;
 const Engraving = ({
   showNegative = true,
   showPriceField = true,
+  isStone = false,
   state,
   setState,
   id,
@@ -134,7 +135,7 @@ const Engraving = ({
     localStorage.setItem('shop-ark-state', JSON.stringify(newState));
   };
 
-  if (!showPriceField) {
+  if (!isStone) {
     positiveEngravings = [...normalEngravings, ...classEngravings];
   }
 

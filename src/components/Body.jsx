@@ -85,7 +85,12 @@ const Body = () => {
           />
         </Grid>
         <Grid item xs={3}>
-          <EngravingCard title='Stone' state={state} setState={setState} />
+          <EngravingCard
+            title='Stone'
+            state={state}
+            setState={setState}
+            isStone={true}
+          />
         </Grid>
         <Grid item xs={3}>
           <EngravingCard title='Necklace' state={state} setState={setState} />

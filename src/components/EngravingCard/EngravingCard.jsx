@@ -12,6 +12,7 @@ const EngravingCard = ({
   title,
   showNegative = true,
   showPriceField = true,
+  isStone = false,
   state,
   setState,
 }) => {
@@ -31,6 +32,7 @@ const EngravingCard = ({
           <Engraving
             showNegative={showNegative}
             showPriceField={showPriceField}
+            isStone={isStone}
             state={state}
             setState={setState}
             id={title.replace(' ', '').toLowerCase()}

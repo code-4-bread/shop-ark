@@ -80,10 +80,10 @@ const Body = () => {
             Reset
           </Button>
         </Grid>
-        <Grid item xs={3} style={{ height: '352px' }}>
+        <Grid item xs={12} md={3} style={{ height: '352px' }}>
           <Stats state={state} />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} md={3}>
           <EngravingCard
             title='Imprint'
             showNegative={false}
@@ -92,7 +92,7 @@ const Body = () => {
             setState={setState}
           />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} md={3}>
           <EngravingCard
             title='Stone'
             state={state}
@@ -100,19 +100,19 @@ const Body = () => {
             isStone={true}
           />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} md={3}>
           <EngravingCard title='Necklace' state={state} setState={setState} />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} md={3}>
           <EngravingCard title='Earring 1' state={state} setState={setState} />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} md={3}>
           <EngravingCard title='Earring 2' state={state} setState={setState} />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} md={3}>
           <EngravingCard title='Ring 1' state={state} setState={setState} />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} md={3}>
           <EngravingCard title='Ring 2' state={state} setState={setState} />
         </Grid>
       </Grid>

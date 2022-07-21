@@ -7,9 +7,24 @@ import {
   DialogActions,
   DialogContent,
   DialogContentText,
+  Modal,
+  Box,
+  Typography,
 } from '@mui/material';
+import styled from 'styled-components';
 import EngravingCard from './EngravingCard/EngravingCard';
 import Stats from './Stats/Stats';
+import { VERSION } from '../version';
+
+const StyledBox = styled(Box)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: black;
+  padding: 20px;
+`;
 
 const Body = () => {
   const existingState = localStorage.getItem('shop-ark-state');
@@ -23,9 +38,27 @@ const Body = () => {
     ring2: { p1: {}, p2: {}, n1: {}, price: 0 },
   };
 
+  const shopArkInfoStorage = localStorage.getItem('shop-ark-info');
+
+  const shopArkInfo = shopArkInfoStorage
+    ? JSON.parse(shopArkInfoStorage)
+    : null;
+
+  let updateModalShown = false;
+  let version = '';
+
+  if (shopArkInfo) {
+    updateModalShown = shopArkInfo.updateModalShown;
+    version = shopArkInfo.version;
+  }
+
   const [state, setState] = useState(JSON.parse(existingState) || defaultData);
 
   const [open, setOpen] = useState(false);
+
+  const [modalValue, setModalValue] = useState(
+    !updateModalShown || version !== VERSION ? true : false
+  );
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -43,8 +76,37 @@ const Body = () => {
     setOpen(false);
   };
 
+  const handleCloseModal = () => {
+    setModalValue(false);
+    localStorage.setItem(
+      'shop-ark-info',
+      JSON.stringify({
+        updateModalShown: true,
+        version: VERSION,
+      })
+    );
+  };
+
   return (
     <>
+      <Modal
+        open={modalValue}
+        onClose={handleCloseModal}
+        aria-labelledby='modal-modal-title'
+        aria-describedby='modal-modal-description'
+      >
+        <StyledBox>
+          <Typography id='modal-modal-title' variant='h5' component='h2'>
+            Update 0.0.4
+          </Typography>
+          <Typography id='modal-modal-description' sx={{ mt: 2 }}>
+            - Arcanist Engravings are added.
+          </Typography>
+          <Button style={{ marginTop: '20px' }} onClick={handleCloseModal}>
+            Got it
+          </Button>
+        </StyledBox>
+      </Modal>
       <Dialog
         open={open}
         onClose={handleClose}

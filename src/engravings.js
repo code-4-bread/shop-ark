@@ -78,7 +78,9 @@ const classEngravings = [
   'Control',
   'Pinnacle',
   'Gravity Training',
-  'Rage Hammer'
+  'Rage Hammer',
+  'Emperor\'s Edict',
+  'Empress Grace'
 ];
 
 const negativeEngravings = [

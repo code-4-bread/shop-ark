@@ -80,7 +80,9 @@ const classEngravings = [
   'Gravity Training',
   'Rage Hammer',
   'Emperor\'s Edict',
-  'Empress Grace'
+  'Empress Grace',
+  'Arthetinean Skill',
+  'Evolutionary Legacy'
 ];
 
 const negativeEngravings = [

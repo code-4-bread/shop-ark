@@ -46,7 +46,7 @@ const Stats = ({ state }) => {
     }
 
     if (n1?.label) {
-      const n1Value = totalMap.get(n1.label);
+      const n1Value = negMap.get(n1.label);
       if (n1Value) {
         negMap.set(n1.label, n1Value + n1.point);
       } else {

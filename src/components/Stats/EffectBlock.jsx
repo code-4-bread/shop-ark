@@ -6,7 +6,6 @@ const EffectBlock = ({ name, value }) => {
   const isNegative = negativeEngravings.includes(name);
   const color = isNegative ? '#FF584D' : '#056FFA';
   const newValue = value > 15 ? 15 : value;
-  const excessValue = value - 15;
 
   return (
     <Grid container style={{ marginTop: '5px', color: color }}>

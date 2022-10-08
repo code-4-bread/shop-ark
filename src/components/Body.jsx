@@ -178,6 +178,15 @@ const Body = () => {
           <EngravingCard title='Ring 2' state={state} setState={setState} />
         </Grid>
       </Grid>
+      <p>
+        Report a bug or contact us -{' '}
+        <a
+          href='mailto:contact@shopark.anonaddy.com'
+          style={{ color: 'white' }}
+        >
+          contact@shopark.anonaddy.com
+        </a>
+      </p>
     </>
   );
 };

@@ -97,10 +97,11 @@ const Body = () => {
       >
         <StyledBox>
           <Typography id='modal-modal-title' variant='h5' component='h2'>
-            Update 0.0.5
+            Update 0.0.6
           </Typography>
           <Typography id='modal-modal-description' sx={{ mt: 2 }}>
-            - Machinist Engravings are added.
+            - Updated effect levels to show just like in game - Fixed negative
+            effects not properly calculated
           </Typography>
           <Button style={{ marginTop: '20px' }} onClick={handleCloseModal}>
             Got it

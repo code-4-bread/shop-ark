@@ -1,4 +1,4 @@
-const VERSION = '0.0.5';
+const VERSION = '0.0.7';
 
 module.exports = {
   VERSION

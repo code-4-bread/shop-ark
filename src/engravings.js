@@ -82,7 +82,9 @@ const classEngravings = [
   'Emperor\'s Edict',
   'Empress Grace',
   'Arthetinean Skill',
-  'Evolutionary Legacy'
+  'Evolutionary Legacy',
+  'Hunger',
+  'Lunar Voice'
 ];
 
 const negativeEngravings = [

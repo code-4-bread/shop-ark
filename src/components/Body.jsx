@@ -97,11 +97,10 @@ const Body = () => {
       >
         <StyledBox>
           <Typography id='modal-modal-title' variant='h5' component='h2'>
-            Update 0.0.6
+            {VERSION}
           </Typography>
           <Typography id='modal-modal-description' sx={{ mt: 2 }}>
-            - Updated effect levels to show just like in game - Fixed negative
-            effects not properly calculated
+            - Added reaper class
           </Typography>
           <Button style={{ marginTop: '20px' }} onClick={handleCloseModal}>
             Got it

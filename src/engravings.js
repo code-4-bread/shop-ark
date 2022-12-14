@@ -84,7 +84,9 @@ const classEngravings = [
   'Arthetinean Skill',
   'Evolutionary Legacy',
   'Hunger',
-  'Lunar Voice'
+  'Lunar Voice',
+  'Master Summoner',
+  'Communication Overflow'
 ];
 
 const negativeEngravings = [

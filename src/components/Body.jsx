@@ -100,7 +100,7 @@ const Body = () => {
             {VERSION}
           </Typography>
           <Typography id='modal-modal-description' sx={{ mt: 2 }}>
-            - Added summoner class
+            - Added Artist class <br />- Added Aeromancer class
           </Typography>
           <Button style={{ marginTop: '20px' }} onClick={handleCloseModal}>
             Got it
